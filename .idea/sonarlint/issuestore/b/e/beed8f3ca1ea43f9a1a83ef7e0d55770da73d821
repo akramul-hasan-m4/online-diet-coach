@@ -1,0 +1,8 @@
+
+ysquid:S2068G"V'Password' detected in this expression, review this potentially hard-coded credential.(‡ê´³þÿÿÿÿ8þÐô­å-
+jsquid:MaximumInheritanceDepth"<This class has 6 parents which is greater than 5 authorized.(·¡ïõøÿÿÿÿ
+Qsquid:S1068".Remove this unused "rememberMe" private field.(¾²Óƒúÿÿÿÿ8‚·ØŽä-
+isquid:S1192<"FDefine a constant instead of duplicating this literal "mtest" 3 times.(ß·êˆÿÿÿÿÿ8ù§”üæ-
+wsquid:S1450"ZRemove the "phoneLayout" field and declare it as a local variable in the relevant methods.(š¡Ú08äö×Žä-
+|squid:S1450"YRemove the "rememberMe" field and declare it as a local variable in the relevant methods.(¾²Óƒúÿÿÿÿ8‚·ØŽä-
+Lsquid:S1068"/Remove this unused "phoneLayout" private field.(š¡Ú08ÿÊ×Žä-

@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.RegistrationFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/ic_person_black_24dp"
+                app:civ_border_width="2dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                app:civ_border_color="@color/colorPrimary"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/firstName_layout"
+                style="@style/LoginTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterMaxLength="11"
+                app:colorControlActivated="@color/colorPrimary"
+                app:errorEnabled="true"
+                app:hintTextAppearance="@style/HintText"
+                app:counterTextAppearance="@style/CounterText"
+                android:textColorHint="@color/colorPrimary"
+                android:hint="Enter Your First Name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/in_firstName"
+                    android:layout_width="match_parent"
+                    android:inputType="text"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="2dp"
+                    android:singleLine="true"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/last_name_layout"
+                style="@style/LoginTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterMaxLength="11"
+                app:colorControlActivated="@color/colorPrimary"
+                app:errorEnabled="true"
+                app:hintTextAppearance="@style/HintText"
+                app:counterTextAppearance="@style/CounterText"
+                android:textColorHint="@color/colorPrimary"
+                android:hint="Enter Your Last Name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/last_name"
+                    android:layout_width="match_parent"
+                    android:inputType="text"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="2dp"
+                    android:singleLine="true"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/user_name_layout"
+                style="@style/LoginTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterMaxLength="11"
+                app:colorControlActivated="@color/colorPrimary"
+                app:errorEnabled="true"
+                app:hintTextAppearance="@style/HintText"
+                app:counterTextAppearance="@style/CounterText"
+                android:textColorHint="@color/colorPrimary"
+                android:hint="Enter Your User Name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_layout"
+                style="@style/LoginTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterMaxLength="11"
+                app:colorControlActivated="@color/colorPrimary"
+                app:errorEnabled="true"
+                app:hintTextAppearance="@style/HintText"
+                app:counterTextAppearance="@style/CounterText"
+                android:textColorHint="@color/colorPrimary"
+                android:hint="Enter Your Password">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:inputType="textPassword"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="2dp"
+                    android:singleLine="true"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/confirm_pass_layout"
+                style="@style/LoginTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterMaxLength="11"
+                app:colorControlActivated="@color/colorPrimary"
+                app:errorEnabled="true"
+                app:hintTextAppearance="@style/HintText"
+                app:counterTextAppearance="@style/CounterText"
+                android:textColorHint="@color/colorPrimary"
+                android:hint="Confirm Password">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/confirm_pass"
+                    android:layout_width="match_parent"
+                    android:inputType="textPassword"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="2dp"
+                    android:singleLine="true"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phone_layout"
+                style="@style/LoginTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterMaxLength="11"
+                app:colorControlActivated="@color/colorPrimary"
+                app:errorEnabled="true"
+                app:hintTextAppearance="@style/HintText"
+                app:counterTextAppearance="@style/CounterText"
+                android:textColorHint="@color/colorPrimary"
+                android:hint="Enter Your Phone No">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phone"
+                    android:layout_width="match_parent"
+                    android:inputType="phone"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="2dp"
+                    android:singleLine="true"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email_layout"
+                style="@style/LoginTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterMaxLength="11"
+                app:colorControlActivated="@color/colorPrimary"
+                app:errorEnabled="true"
+                app:hintTextAppearance="@style/HintText"
+                app:counterTextAppearance="@style/CounterText"
+                android:textColorHint="@color/colorPrimary"
+                android:hint="Enter Your Email">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="2dp"
+                    android:singleLine="true"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/age_layout"
+                style="@style/LoginTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterMaxLength="11"
+                app:colorControlActivated="@color/colorPrimary"
+                app:errorEnabled="true"
+                app:hintTextAppearance="@style/HintText"
+                app:counterTextAppearance="@style/CounterText"
+                android:textColorHint="@color/colorPrimary"
+                android:hint="Enter Your Age">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/age"
+                    android:layout_width="match_parent"
+                    android:inputType="numberDecimal"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="2dp"
+                    android:singleLine="true"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/blood_layout"
+                style="@style/LoginTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterMaxLength="11"
+                app:colorControlActivated="@color/colorPrimary"
+                app:errorEnabled="true"
+                app:hintTextAppearance="@style/HintText"
+                app:counterTextAppearance="@style/CounterText"
+                android:textColorHint="@color/colorPrimary"
+                android:hint="Enter Your Blood Group">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/blood_group"
+                    android:layout_width="match_parent"
+                    android:inputType="text"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="2dp"
+                    android:singleLine="true"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/address_layout"
+                style="@style/LoginTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterMaxLength="11"
+                app:colorControlActivated="@color/colorPrimary"
+                app:errorEnabled="true"
+                app:hintTextAppearance="@style/HintText"
+                app:counterTextAppearance="@style/CounterText"
+                android:textColorHint="@color/colorPrimary"
+                android:hint="Enter Your Address">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:inputType="text"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="2dp"
+                    android:singleLine="true"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_login"
+                android:background="@drawable/gradientbtn"
+                android:layout_width="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:text="@string/login"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/reg_progress"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"/>
+
+</FrameLayout>

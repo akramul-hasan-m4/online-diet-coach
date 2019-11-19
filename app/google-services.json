@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "939202580830",
+    "firebase_url": "https://online-diet-coach.firebaseio.com",
+    "project_id": "online-diet-coach",
+    "storage_bucket": "online-diet-coach.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939202580830:android:a2bc445f93cf03f4d37fcf",
+        "android_client_info": {
+          "package_name": "com.daffodil.online.dietcoach"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "939202580830-1rd0dktm04gakjtrtiga7o3ha90qb652.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.daffodil.online.dietcoach",
+            "certificate_hash": "e057726e2f7dd21767d4522ca875d3bc870f4eb1"
+          }
+        },
+        {
+          "client_id": "939202580830-fid9f19e6210k66dv1id04l0fhg61qhs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7iNrpt6Xv9eyjuVPLZOdUc6y0xGHFXzY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939202580830-fid9f19e6210k66dv1id04l0fhg61qhs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
