@@ -15,6 +15,8 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.daffodil.online.dietcoach.R;
@@ -68,9 +70,11 @@ public class RegActivity extends AppCompatActivity {
     private TextInputLayout conPasswordLayout;
     private TextInputEditText conPassword;
     private Button btnLogin;
+    private RadioGroup gender;
     private ProgressBar regProgress;
 
     private Bitmap selectedImage;
+    private String genderText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +95,16 @@ public class RegActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 bindUser();
+            }
+        });
+
+        gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton checkedGender = group.findViewById(checkedId);
+                if(checkedGender.isChecked()){
+                    genderText = checkedGender.getText().toString();
+                }
             }
         });
     }
@@ -121,6 +135,7 @@ public class RegActivity extends AppCompatActivity {
         users.setBloodGroup(bloodGroupText);
         users.setAddress(addressText);
         users.setPassword(passwordText);
+        users.setGender(genderText);
 
         new UserRepository(this).addUser(users, new UserRepository.UserAddListener() {
             @Override
@@ -242,5 +257,6 @@ public class RegActivity extends AppCompatActivity {
         conPassword = findViewById(R.id.confirm_pass);
         btnLogin = findViewById(R.id.btn_login);
         regProgress = findViewById(R.id.reg_progress);
+        gender = findViewById(R.id.gender);
     }
 }

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.RegistrationFragment">
+   >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -287,6 +287,33 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <RadioGroup
+                android:id="@+id/gender"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:background="@drawable/border"
+                android:padding="5dp"
+                android:gravity="center"
+                android:layout_marginBottom="15dp"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/male"
+                    android:layout_width="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:text="male"
+                    android:buttonTint="@color/colorPrimary"
+                    android:layout_height="wrap_content"/>
+
+                <RadioButton
+                    android:id="@+id/female"
+                    android:layout_width="wrap_content"
+                    android:buttonTint="@color/colorPrimary"
+                    android:text="female"
+                    android:layout_height="wrap_content"/>
+
+            </RadioGroup>
+
             <Button
                 android:id="@+id/btn_login"
                 android:background="@drawable/gradientbtn"
@@ -295,9 +322,8 @@
                 android:textColor="#fff"
                 android:textStyle="bold"
                 android:layout_gravity="center"
-                android:text="@string/login"
+                android:text="@string/SignUp"
                 android:layout_height="wrap_content" />
-
 
         </LinearLayout>
 

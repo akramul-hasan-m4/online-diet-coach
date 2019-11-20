@@ -1,7 +1,0 @@
-
-]squid:UselessImportCheck"-Remove this unused import 'android.util.Log'.(Ô¦Ø²øÿÿÿÿ8ÙÇä-
-Esquid:S1068%"'Remove this unused "TAG" private field.(Ö—ÈÚ8ÙÇä-
-lsquid:MaximumInheritanceDepth#"<This class has 6 parents which is greater than 5 authorized.(ƒ¿8ïËæã-
-‚squid:UselessImportCheck
-"RRemove this unused import 'com.daffodil.online.dietcoach.ui.RegistrationFragment'.(Ôê˜‡şÿÿÿÿ8†Ğò­å-
-isquid:CommentedOutCodeLine0"<This block of commented-out lines of code should be removed.(äïˆ8¨¾Ôéã-

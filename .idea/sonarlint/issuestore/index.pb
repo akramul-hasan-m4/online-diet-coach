@@ -1,6 +1,4 @@
 
-q
-Aapp/src/main/java/com/daffodil/online/dietcoach/MainActivity.java,9\2\920b466e79051edf38e0b15d74b687279fb009f1
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 @
@@ -19,8 +17,6 @@ p
 @app/src/main/java/com/daffodil/online/dietcoach/model/Users.java,3\e\3ed8fdfc43431d9272923782ce9fd897cb167d23
 Å
 Qapp/src/main/java/com/daffodil/online/dietcoach/db/repository/UserRepository.java,4\5\45f24f043b505db982868b471fa5ac8f01501976
-|
-Lapp/src/main/java/com/daffodil/online/dietcoach/ui/RegistrationFragment.java,1\a\1a65f237b49804e5eb022d621ad72ad34ad25c68
 y
 Iapp/src/main/java/com/daffodil/online/dietcoach/activity/RegActivity.java,7\b\7b6daabca8873bde42f975c78053eda86831167c
 S
