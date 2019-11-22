@@ -25,3 +25,7 @@ z
 Japp/src/main/java/com/daffodil/online/dietcoach/activity/MainActivity.java,f\1\f1215b06d8de0b96ca9fad2cdb37151ac7c9655f
 u
 Eapp/src/main/java/com/daffodil/online/dietcoach/utils/Base4Utils.java,1\a\1a9ce7246f699aabcca1fc76afe61ee581b2f804
+Ö
+Uapp/src/main/java/com/daffodil/online/dietcoach/db/local/SharedPreferencesConfig.java,e\b\ebbb5aa867a824eeab5f446e34cfcdbdd221f6fa
+Å
+Qapp/src/main/java/com/daffodil/online/dietcoach/db/local/ShareStoreConstants.java,3\4\343bf701f16d87d37d2efe904105ba2d04afde03

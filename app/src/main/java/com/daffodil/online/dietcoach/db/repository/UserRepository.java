@@ -62,7 +62,7 @@ public class UserRepository {
 
     public void findUser(Users users, final UserStatus status){
         Log.d("mtest", "onDataChange: <<<<<<<<<<<<<<<==> " );
-        reference.orderByChild("email").startAt("akramul@gmail.com").endAt("akramul@gmail.com").addValueEventListener(new ValueEventListener() {
+        reference.orderByChild("phone").startAt(users.getPhone()).endAt(users.getPhone()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 List<String> keys = new ArrayList<>();
@@ -108,6 +108,33 @@ public class UserRepository {
         }
 
     }
+
+    /*
+    *
+    *        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference reference = firebaseDatabase.getReference();
+        reference.child("specimens")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        Iterable<DataSnapshot> children = dataSnapshot.getChildren();
+
+                        for (DataSnapshot child: children)
+                        {
+                            SpecimenDTO specimenDTO = child.getValue(SpecimenDTO.class);
+                            Toast.makeText(GPSAPlant.this, "Data: " + specimenDTO.toString(), Toast.LENGTH_LONG).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+    *
+    *
+    *
+    * */
     /*
     https://firebase.google.com/docs/reference/js/firebase.database.Query#equalTo
     * public void addBook(Book book){

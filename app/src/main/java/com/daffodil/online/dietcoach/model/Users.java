@@ -16,6 +16,7 @@ public class Users {
     private String profileImage;
     private String userName;
     private String gender;
+    private String userType;
 
     public String getAddress() {
         return address;
@@ -118,5 +119,13 @@ public class Users {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 }

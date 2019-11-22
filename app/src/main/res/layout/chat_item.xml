@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#60FAC6">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/bot_layout"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_height="wrap_content"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_marginTop="18dp"
+            android:layout_width="50dp"
+            android:src="@drawable/ic_doctor"
+            android:layout_height="50dp"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/botMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="15dp"
+            android:textSize="20sp"
+            android:background="@drawable/left_bubble_shape"
+            tools:text="Hello Sir how can i help you?" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/user_layout"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:gravity="end"
+        android:layout_height="wrap_content"
+        tools:ignore="UseCompoundDrawables">
+
+        <TextView
+            android:id="@+id/user_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="15dp"
+            android:textSize="20sp"
+            android:background="@drawable/right_buble_shape"
+            tools:text="Need heart foundation address" />
+
+        <ImageView
+            android:layout_marginTop="18dp"
+            android:layout_width="50dp"
+            android:src="@drawable/dummy_user"
+            android:layout_height="50dp"
+            tools:ignore="ContentDescription" />
+
+    </LinearLayout>
+
+</LinearLayout>
