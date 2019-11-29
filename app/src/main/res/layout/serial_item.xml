@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="5dp"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="3dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:padding="5dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/patient_name"
+            android:layout_width="match_parent"
+            tools:text="Patient Name :: Sampa Sutradhar"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/patient_mobile_no"
+            android:layout_width="match_parent"
+            tools:text="Patient Mobile :: 01777775664"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/dr_name"
+            android:layout_width="match_parent"
+            tools:text="Dietitian Name :: Teetle banik"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/serial_date"
+            android:layout_width="match_parent"
+            tools:text="Date :: 2019-12-12"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/serial_no"
+            android:layout_width="match_parent"
+            tools:text="Serial Number :: 10"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

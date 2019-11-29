@@ -4,6 +4,7 @@ public class Conversation {
 
     private String userId;
     private String userName;
+    private String userType;
     private String message;
     private String imageData;
 
@@ -37,5 +38,13 @@ public class Conversation {
 
     public void setImageData(String imageData) {
         this.imageData = imageData;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 }

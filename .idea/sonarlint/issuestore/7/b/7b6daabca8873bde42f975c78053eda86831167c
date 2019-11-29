@@ -1,26 +1,26 @@
 
-Xsquid:S1068F"5Remove this unused "conPasswordLayout" private field.(í–§ûÿÿÿÿ8ƒ€ˆé-
-xsquid:S1450J"ZRemove the "regProgress" field and declare it as a local variable in the relevant methods.(Äú8ƒ€ˆé-
-Psquid:S10688"2Remove this unused "userNameLayout" private field.(“ü›ğ8ƒ€ˆé-
-Msquid:S1068@"/Remove this unused "bloodLayout" private field.(¥À„8ƒ€ˆé-
-{squid:S14508"]Remove the "userNameLayout" field and declare it as a local variable in the relevant methods.(“ü›ğ8ƒ€ˆé-
-xsquid:S1450<"ZRemove the "emailLayout" field and declare it as a local variable in the relevant methods.(³ÊÚ‘8ƒ€ˆé-
-zsquid:S1450B"\Remove the "addressLayout" field and declare it as a local variable in the relevant methods.(ƒÓ®„8ƒ€ˆé-
-Psquid:S1068D"2Remove this unused "passwordLayout" private field.(¥£±8ƒ€ˆé-
-{squid:S1450>"XRemove the "ageLayout" field and declare it as a local variable in the relevant methods.(¶°·Şüÿÿÿÿ8ƒ€ˆé-
-ƒsquid:S1450F"`Remove the "conPasswordLayout" field and declare it as a local variable in the relevant methods.(í–§ûÿÿÿÿ8ƒ€ˆé-
-asquid:S1854"CRemove this useless assignment to local variable "conPasswordText".(•×º·8ƒ€ˆé-
-Usquid:S10686"2Remove this unused "lastNameLayout" private field.(ôÒÓˆşÿÿÿÿ8ƒ€ˆé-
-Osquid:S1068B"1Remove this unused "addressLayout" private field.(ƒÓ®„8ƒ€ˆé-
-xsquid:S1450@"ZRemove the "bloodLayout" field and declare it as a local variable in the relevant methods.(¥À„8ƒ€ˆé-
-Rsquid:S1481"4Remove this unused "conPasswordText" local variable.(•×º·8ƒ€ˆé-
-Lsquid:S1068:"/Remove this unused "phoneLayout" private field.(š¡Ú08ƒ€ˆé-
-lsquid:MaximumInheritanceDepth+"<This class has 6 parents which is greater than 5 authorized.(Ÿ¨¬8ƒ€ˆé-
-Qsquid:S10684"3Remove this unused "firstNameLayout" private field.(·££‰8ƒ€ˆé-
-Msquid:S1068J"/Remove this unused "regProgress" private field.(Äú8ƒ€ˆé-
-Psquid:S1068>"-Remove this unused "ageLayout" private field.(¶°·Şüÿÿÿÿ8ƒ€ˆé-
-€squid:S14506"]Remove the "lastNameLayout" field and declare it as a local variable in the relevant methods.(ôÒÓˆşÿÿÿÿ8ƒ€ˆé-
-Msquid:S1068<"/Remove this unused "emailLayout" private field.(³ÊÚ‘8ƒ€ˆé-
-wsquid:S1450:"ZRemove the "phoneLayout" field and declare it as a local variable in the relevant methods.(š¡Ú08ƒ€ˆé-
-{squid:S1450D"]Remove the "passwordLayout" field and declare it as a local variable in the relevant methods.(¥£±8ƒ€ˆé-
-|squid:S14504"^Remove the "firstNameLayout" field and declare it as a local variable in the relevant methods.(·££‰8ƒ€ˆé-
+Xsquid:S1068G"5Remove this unused "conPasswordLayout" private field.(í–§ûÿÿÿÿ8ƒ€ˆé-
+xsquid:S1450="ZRemove the "emailLayout" field and declare it as a local variable in the relevant methods.(³ÊÚ‘8ƒ€ˆé-
+ƒsquid:S1450G"`Remove the "conPasswordLayout" field and declare it as a local variable in the relevant methods.(í–§ûÿÿÿÿ8ƒ€ˆé-
+wsquid:S1450;"ZRemove the "phoneLayout" field and declare it as a local variable in the relevant methods.(š¡Ú08ƒ€ˆé-
+xsquid:S1450A"ZRemove the "bloodLayout" field and declare it as a local variable in the relevant methods.(¥À„8ƒ€ˆé-
+€squid:S14507"]Remove the "lastNameLayout" field and declare it as a local variable in the relevant methods.(ôÒÓˆşÿÿÿÿ8ƒ€ˆé-
+Ssquid:S1481€"4Remove this unused "conPasswordText" local variable.(•×º·8ƒ€ˆé-
+Msquid:S1068A"/Remove this unused "bloodLayout" private field.(¥À„8ƒ€ˆé-
+xsquid:S1450K"ZRemove the "regProgress" field and declare it as a local variable in the relevant methods.(Äú8ƒ€ˆé-
+Psquid:S1068?"-Remove this unused "ageLayout" private field.(¶°·Şüÿÿÿÿ8ƒ€ˆé-
+Msquid:S1068="/Remove this unused "emailLayout" private field.(³ÊÚ‘8ƒ€ˆé-
+{squid:S1450E"]Remove the "passwordLayout" field and declare it as a local variable in the relevant methods.(¥£±8ƒ€ˆé-
+zsquid:S1450C"\Remove the "addressLayout" field and declare it as a local variable in the relevant methods.(ƒÓ®„8ƒ€ˆé-
+lsquid:MaximumInheritanceDepth,"<This class has 6 parents which is greater than 5 authorized.(Ÿ¨¬8ƒ€ˆé-
+|squid:S14505"^Remove the "firstNameLayout" field and declare it as a local variable in the relevant methods.(·££‰8ƒ€ˆé-
+Qsquid:S10685"3Remove this unused "firstNameLayout" private field.(·££‰8ƒ€ˆé-
+Usquid:S10687"2Remove this unused "lastNameLayout" private field.(ôÒÓˆşÿÿÿÿ8ƒ€ˆé-
+Psquid:S1068E"2Remove this unused "passwordLayout" private field.(¥£±8ƒ€ˆé-
+Msquid:S1068K"/Remove this unused "regProgress" private field.(Äú8ƒ€ˆé-
+{squid:S14509"]Remove the "userNameLayout" field and declare it as a local variable in the relevant methods.(“ü›ğ8ƒ€ˆé-
+bsquid:S1854€"CRemove this useless assignment to local variable "conPasswordText".(•×º·8ƒ€ˆé-
+Lsquid:S1068;"/Remove this unused "phoneLayout" private field.(š¡Ú08ƒ€ˆé-
+Psquid:S10689"2Remove this unused "userNameLayout" private field.(“ü›ğ8ƒ€ˆé-
+Osquid:S1068C"1Remove this unused "addressLayout" private field.(ƒÓ®„8ƒ€ˆé-
+{squid:S1450?"XRemove the "ageLayout" field and declare it as a local variable in the relevant methods.(¶°·Şüÿÿÿÿ8ƒ€ˆé-

@@ -39,6 +39,7 @@ public class UserRepository {
     }
 
     public void getAllUsers(final UserStatus status){
+        Log.d("mtest", "getAllUsers: <<<<<<<<<<<<<<<==> " );
         reference.addValueEventListener(new ValueEventListener() {
 
             @Override

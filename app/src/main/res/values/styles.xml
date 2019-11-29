@@ -39,4 +39,20 @@
         <item name="android:textColor">@color/colorPrimary</item>
     </style>
 
+    <style name="FullScreenDialog">
+        <![CDATA[<style name="FullScreenDialog" parent="Theme.AppCompat.Light">
+            <item name="android:windowFrame">@null</item> </style>]]>
+    </style>
+
+    <style name="FullScreenDialogStyle" parent="android:Theme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <style name="animation">
+        <item name="android:windowEnterAnimation">@anim/in_animation</item>
+        <item name="android:windowExitAnimation">@anim/out_animation</item>
+    </style>
+
 </resources>

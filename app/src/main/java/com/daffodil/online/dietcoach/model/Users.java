@@ -1,6 +1,5 @@
 package com.daffodil.online.dietcoach.model;
 
-import com.google.firebase.database.PropertyName;
 
 public class Users {
 
@@ -16,6 +15,8 @@ public class Users {
     private String profileImage;
     private String userName;
     private String gender;
+    private String occupation;
+    private String doctorDegree;
     private String userType;
 
     public String getAddress() {
@@ -58,27 +59,22 @@ public class Users {
         this.userName = userName;
     }
 
-    // @PropertyName("blood_group")
     public String getBloodGroup() {
         return bloodGroup;
     }
 
-   // @PropertyName("blood_group")
     public void setBloodGroup(String bloodGroup) {
         this.bloodGroup = bloodGroup;
     }
 
-   // @PropertyName("first_name")
     public String getFirstName() {
         return firstName;
     }
 
-   // @PropertyName("first_name")
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-  //  @PropertyName("last_name")
     public String getLastName() {
         return lastName;
     }
@@ -127,5 +123,21 @@ public class Users {
 
     public void setUserType(String userType) {
         this.userType = userType;
+    }
+
+    public String getOccupation() {
+        return occupation;
+    }
+
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
+    }
+
+    public String getDoctorDegree() {
+        return doctorDegree;
+    }
+
+    public void setDoctorDegree(String doctorDegree) {
+        this.doctorDegree = doctorDegree;
     }
 }

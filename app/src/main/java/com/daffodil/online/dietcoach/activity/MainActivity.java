@@ -7,8 +7,11 @@ import android.os.Bundle;
 
 import com.daffodil.online.dietcoach.BuildConfig;
 import com.daffodil.online.dietcoach.R;
+import com.daffodil.online.dietcoach.db.local.SharedPreferencesConfig;
+import com.daffodil.online.dietcoach.ui.ChatRoomFragment;
 import com.daffodil.online.dietcoach.ui.DashBoard;
 import com.daffodil.online.dietcoach.ui.DoctorProfile;
+import com.daffodil.online.dietcoach.ui.SerialListFragment;
 import com.daffodil.online.dietcoach.ui.UserProfile;
 
 import com.google.android.material.navigation.NavigationView;
@@ -31,10 +34,14 @@ import android.view.Menu;
 
 import java.util.Objects;
 
+import static com.daffodil.online.dietcoach.db.local.ShareStoreConstants.NO;
+import static com.daffodil.online.dietcoach.db.local.ShareStoreConstants.REMEMBER_ME;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private static final String TAG = "MainActivity";
     DrawerLayout drawer;
+    private Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,9 +78,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.onNavigationItemSelected
         getMenuInflater().inflate(R.menu.main, menu);
+        menu.add(1, 1, Menu.NONE, "Log Out");
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        if (item.getItemId() == 1) {
+            SharedPreferencesConfig.saveStringData(Objects.requireNonNull(getApplicationContext()), REMEMBER_ME, NO);
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    
+    @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() > 0){
+            getFragmentManager().popBackStack();
+        }else {
+            super.onBackPressed();
+        }
     }
 
     @Override
@@ -82,14 +109,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         item.setChecked(true);
         if (id == R.id.nav_share) {
             shareApp();
-        } else if (id == R.id.nav_dietitian_profile) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new DoctorProfile()).commit();
+        } else if (id == R.id.nav_serial_list) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new SerialListFragment()).addToBackStack(null).commit();
         }else if (id == R.id.nav_send) {
             rateUs();
         }else if (id == R.id.nav_home) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new DashBoard()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new DashBoard()).addToBackStack(null).commit();
         }else if (id == R.id.nav_user_profile) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new UserProfile()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new UserProfile()).addToBackStack(null).commit();
+        }else if (id == R.id.nav_chat) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new ChatRoomFragment()).addToBackStack(null).commit();
         }
 
         drawer.closeDrawer(GravityCompat.START);
@@ -114,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         sharingIntent.setType("text/plain");
         String shareBody = "Hello friend you can use online diet coach. More details in play Store " +
                 Uri.parse("http://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID);
-        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Offline vehicle tracking system In bangladesh");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Online diet coach In bangladesh");
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
         startActivity(Intent.createChooser(sharingIntent, "Share via"));
     }

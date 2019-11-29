@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:orientation="vertical"
-    android:background="#3F51B5"
+
     >
 
     <androidx.recyclerview.widget.RecyclerView
@@ -18,16 +19,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_margin="8dp"
+        android:layout_gravity="bottom"
         android:orientation="horizontal"
+        android:background="#3F51B5"
         android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/image_send"
+            android:layout_width="0dp"
+            android:layout_weight=".1"
+            android:src="@drawable/ic_photo_camera_black_24dp"
+            android:backgroundTint="@android:color/white"
+            android:layout_height="wrap_content"
+            tools:ignore="ContentDescription" />
 
         <EditText
             android:id="@+id/bot_input"
-            android:layout_weight=".8"
+            android:layout_weight=".7"
             android:layout_width="0dp"
             android:background="@drawable/bg_edit_text"
             android:textSize="18sp"
-            android:hint="Ask The BOT"
+            android:hint="Write your message here..."
             android:textColor="#fff"
             android:textColorHint="#fff"
             android:padding="8dp"

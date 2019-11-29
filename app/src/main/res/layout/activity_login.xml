@@ -132,6 +132,14 @@
 
             </LinearLayout>
 
+            <ProgressBar
+                android:id="@+id/login_progress"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                tools:visibility="visible"
+                android:visibility="gone"
+                android:layout_height="wrap_content"/>
+
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

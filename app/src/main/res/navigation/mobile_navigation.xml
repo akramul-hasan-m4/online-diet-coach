@@ -12,9 +12,9 @@
         tools:layout="@layout/fragment_dash_board" />
 
     <fragment
-        android:id="@+id/nav_dietitian_profile"
+        android:id="@+id/nav_serial_list"
         android:name="com.daffodil.online.dietcoach.ui.DoctorProfile"
-        android:label="Dietitian Profile"
+        android:label="Serial List"
         tools:layout="@layout/fragment_dash_board" />
 
     <fragment
@@ -22,5 +22,11 @@
         android:name="com.daffodil.online.dietcoach.ui.UserProfile"
         android:label="User Profile"
         tools:layout="@layout/fragment_dash_board" />
+
+    <fragment
+        android:id="@+id/nav_chat"
+        android:name="com.daffodil.online.dietcoach.ui.ChatRoomFragment"
+        android:label="Chat"
+        tools:layout="@layout/fragment_chat_room" />
 
 </navigation>

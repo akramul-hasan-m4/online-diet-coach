@@ -38,6 +38,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+import static com.daffodil.online.dietcoach.db.local.ShareStoreConstants.USER;
 
 
 public class RegActivity extends AppCompatActivity {
@@ -136,6 +137,7 @@ public class RegActivity extends AppCompatActivity {
         users.setAddress(addressText);
         users.setPassword(passwordText);
         users.setGender(genderText);
+        users.setUserType(USER);
 
         new UserRepository(this).addUser(users, new UserRepository.UserAddListener() {
             @Override

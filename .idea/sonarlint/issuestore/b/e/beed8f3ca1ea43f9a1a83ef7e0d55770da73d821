@@ -1,10 +1,10 @@
 
-Ÿsquid:S1186l"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(á¬‡İ8Ä»“˜é-
-asquid:UselessImportCheck"1Remove this unused import 'android.widget.Toast'.(©›ïÍúÿÿÿÿ8ş“˜é-
-]squid:UselessImportCheck"-Remove this unused import 'android.util.Log'.(Ô¦Ø²øÿÿÿÿ8ôÈ”˜é-
-Ÿsquid:S1186q"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Œğ£Â8Ä»“˜é-
-usquid:S3776)"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(¨Œşÿÿÿÿ8¿áóˆé-
-¤squid:S1186v"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(×åó«øÿÿÿÿ8Ä»“˜é-
-Qsquid:S1068%".Remove this unused "rememberMe" private field.(¾²Óƒúÿÿÿÿ8‚·Øä-
-jsquid:MaximumInheritanceDepth"<This class has 6 parents which is greater than 5 authorized.(¡Îåàıÿÿÿÿ
-|squid:S1450%"YRemove the "rememberMe" field and declare it as a local variable in the relevant methods.(¾²Óƒúÿÿÿÿ8‚·Øä-
+qsquid:MaximumInheritanceDepth%"<This class has 6 parents which is greater than 5 authorized.(¡Îåàıÿÿÿÿ8ãÅ‹±ê-
+bsquid:UselessImportCheck
+"7Remove this unused import 'android.view.WindowManager'.(Ü³‹Å8ÖÓ³–ê-
+asquid:UselessImportCheck"1Remove this unused import 'android.widget.Toast'.(©›ïÍúÿÿÿÿ8ş“˜é-
+¥squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(×åó«øÿÿÿÿ8ßÄ—±ê-
+ squid:S1186†"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(á¬‡İ8ßÄ—±ê-
+ squid:S1186‹"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Œğ£Â8ßÄ—±ê-
+usquid:S37761"RRefactor this method to reduce its Cognitive Complexity from 29 to the 15 allowed.(¨Œşÿÿÿÿ8ãÅ‹±ê-
+]squid:UselessImportCheck"-Remove this unused import 'android.util.Log'.(Ô¦Ø²øÿÿÿÿ8ëÿƒ±ê-
