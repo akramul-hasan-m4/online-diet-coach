@@ -10,6 +10,7 @@
         android:id="@+id/image_view"
         android:layout_width="match_parent"
         android:src="@drawable/dummy_user"
+        android:scaleType="fitXY"
         android:layout_height="wrap_content"
         tools:ignore="ContentDescription" />
 

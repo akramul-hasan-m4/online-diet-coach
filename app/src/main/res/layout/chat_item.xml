@@ -36,9 +36,9 @@
 
             <ImageView
                 android:id="@+id/doctor_send_image"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:src="@drawable/dummy_user"
-                android:layout_height="300dp"
+                android:layout_height="150dp"
                 android:visibility="gone"
                 android:scaleType="fitXY"
                 tools:ignore="ContentDescription" />
@@ -50,6 +50,7 @@
                 android:layout_margin="2dp"
                 android:padding="15dp"
                 android:textSize="20sp"
+                android:visibility="gone"
                 android:background="@drawable/left_bubble_shape"
                 tools:text="Hello Sir how can i help you?" />
 

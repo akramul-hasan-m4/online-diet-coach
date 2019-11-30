@@ -4,6 +4,7 @@ package com.daffodil.online.dietcoach.ui;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +19,10 @@ import com.daffodil.online.dietcoach.R;
 import com.daffodil.online.dietcoach.adapter.DoctorChatAdapter;
 import com.daffodil.online.dietcoach.db.local.SharedPreferencesConfig;
 import com.daffodil.online.dietcoach.db.repository.AppointmentRepo;
+import com.daffodil.online.dietcoach.db.repository.ConversationRepo;
 import com.daffodil.online.dietcoach.db.repository.UserRepository;
 import com.daffodil.online.dietcoach.model.Appointment;
+import com.daffodil.online.dietcoach.model.Conversation;
 import com.daffodil.online.dietcoach.model.Users;
 import com.google.gson.Gson;
 
@@ -57,6 +60,7 @@ public class ChatRoomFragment extends Fragment implements DoctorChatAdapter.Chat
         doctorChatList = view.findViewById(R.id.doctor_chat_list);
         doctorChatProgressbar = view.findViewById(R.id.doctor_chat_progressbar);
         doctorChatProgressbar.setVisibility(View.VISIBLE);
+
         new UserRepository(Objects.requireNonNull(getActivity())).getAllUsers(new UserRepository.UserStatus() {
             @Override
             public void userIsLoaded(List<Users> users, List<String> keys) {
@@ -75,9 +79,7 @@ public class ChatRoomFragment extends Fragment implements DoctorChatAdapter.Chat
 
     @Override
     public void onChatClick(Users doctor) {
-        Gson gson = new Gson();
-        String userJson = gson.toJson(doctor);
-        SharedPreferencesConfig.saveStringData(Objects.requireNonNull(Objects.requireNonNull(getActivity())), DOCTOR_CHAT, userJson);
+        SharedPreferencesConfig.saveStringData(Objects.requireNonNull(Objects.requireNonNull(getActivity())), DOCTOR_CHAT, doctor.getPhone());
         Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new ChatFragment()).addToBackStack(null).commit();
     }
 
@@ -90,7 +92,6 @@ public class ChatRoomFragment extends Fragment implements DoctorChatAdapter.Chat
     public void onInfoClick(Users doctor) {
         showDoctorInfo(doctor);
     }
-
 
     private void showDoctorInfo(Users doctor) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
@@ -205,7 +206,9 @@ public class ChatRoomFragment extends Fragment implements DoctorChatAdapter.Chat
 
                     }
                 }, mYear, mMonth, mDay);
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
         datePickerDialog.show();
     }
+
 
 }

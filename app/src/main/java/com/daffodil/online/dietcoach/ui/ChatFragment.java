@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,14 +27,18 @@ import com.daffodil.online.dietcoach.R;
 import com.daffodil.online.dietcoach.activity.MainActivity;
 import com.daffodil.online.dietcoach.adapter.BotAdapter;
 import com.daffodil.online.dietcoach.db.local.SharedPreferencesConfig;
+import com.daffodil.online.dietcoach.db.repository.ConversationRepo;
 import com.daffodil.online.dietcoach.model.Conversation;
 import com.daffodil.online.dietcoach.model.Users;
 import com.daffodil.online.dietcoach.utils.Base4Utils;
 import com.google.gson.Gson;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 import androidx.appcompat.app.AlertDialog;
@@ -49,6 +54,7 @@ import static com.daffodil.online.dietcoach.db.local.ShareStoreConstants.CURRENT
 import static com.daffodil.online.dietcoach.db.local.ShareStoreConstants.DOCTOR;
 import static com.daffodil.online.dietcoach.db.local.ShareStoreConstants.DOCTOR_CHAT;
 import static com.daffodil.online.dietcoach.db.local.ShareStoreConstants.USER;
+import static com.daffodil.online.dietcoach.db.local.ShareStoreConstants.USER_TYPE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -63,13 +69,10 @@ public class ChatFragment extends Fragment implements BotAdapter.ImageClickListe
 
     private EditText botInput;
     private BotAdapter adapter;
-    private RecyclerView conversation;
     private List<Conversation> messageList;
-    private ImageButton imageSend;
-    private Button send;
     private EditText msgInput;
-    private Bitmap selectedImage;
     private Users userObj;
+    private RecyclerView conversation;
 
     public ChatFragment() {
         // Required empty public constructor
@@ -79,12 +82,11 @@ public class ChatFragment extends Fragment implements BotAdapter.ImageClickListe
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Objects.requireNonNull(((MainActivity) Objects.requireNonNull(getActivity())).getSupportActionBar()).setTitle("Chat Room");
         View view = inflater.inflate(R.layout.chat_room, container, false);
-        imageSend = view.findViewById(R.id.image_send);
-        send = view.findViewById(R.id.send);
+        ImageButton imageSend = view.findViewById(R.id.image_send);
+        Button send = view.findViewById(R.id.send);
         conversation = view.findViewById(R.id.conversation);
         msgInput = view.findViewById(R.id.bot_input);
         verifyStoragePermissions(Objects.requireNonNull(getActivity()));
-
 
         imageSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,21 +95,33 @@ public class ChatFragment extends Fragment implements BotAdapter.ImageClickListe
             }
         });
 
-        /*Gson gson = new Gson();
-        String doctor = SharedPreferencesConfig.getStringData(Objects.requireNonNull(getContext()), DOCTOR_CHAT);
-        Users doctorObj = gson.fromJson(doctor, Users.class);*/
+        final String doctorPhone = SharedPreferencesConfig.getStringData(Objects.requireNonNull(getContext()), DOCTOR_CHAT);
 
         Gson gson = new Gson();
         String user = SharedPreferencesConfig.getStringData(Objects.requireNonNull(getContext()), CURRENT_USER);
         userObj = gson.fromJson(user, Users.class);
 
         messageList = new ArrayList<>();
-        Conversation msg = new Conversation();
-        msg.setUserType(DOCTOR);
-        msg.setMessage("Sir How Can i help you?");
-        messageList.add(msg);
-        adapter = new BotAdapter(messageList, getActivity(), ChatFragment.this);
-        RecyclerView.LayoutManager manager =  new LinearLayoutManager(getActivity());
+
+        notifyUser();
+        if(messageList.isEmpty()){
+            Conversation msg = new Conversation();
+            msg.setUserType(DOCTOR);
+            String gender = userObj == null ? "" : userObj.getGender();
+            String person = "";
+            if(TextUtils.isEmpty(gender)){
+                person = "Sir / Ma'am";
+            }else if (gender.equalsIgnoreCase("male")){
+                person = "Sir" ;
+            }else {
+                person = "Ma'am";
+            }
+            msg.setMessage("Hello " + person + ", How Can i help you?");
+            messageList.add(msg);
+        }
+        
+        adapter = new BotAdapter(messageList, getActivity(), ChatFragment.this, userObj);
+        LinearLayoutManager manager =  new LinearLayoutManager(getActivity());
         conversation.setLayoutManager(manager);
         conversation.setHasFixedSize(true);
         conversation.setAdapter(adapter);
@@ -116,20 +130,39 @@ public class ChatFragment extends Fragment implements BotAdapter.ImageClickListe
             public void onClick(View view) {
                 String inputMsg = msgInput.getText().toString();
                 Conversation msg = new Conversation();
-                msg.setUserType(USER);
-                msg.setMessage(inputMsg);
 
+                if(userObj != null){
+                    String userType = userObj.getUserType();
+                    String currentDate = new SimpleDateFormat("yyyy-MM-dd HH:mm a", Locale.getDefault()).format(new Date());
+                    String userFullName = userObj.getFirstName() + " " + userObj.getLastName();
+
+                    msg.setUserType(userType);
+                    msg.setMessage(inputMsg);
+                    if(userType.equalsIgnoreCase(USER)){
+                        msg.setConnectFromPhone(userObj.getPhone());
+                    }
+                    msg.setConnectToPhone(doctorPhone);
+                    msg.setDate(currentDate);
+                    msg.setUserName(userFullName);
+
+                }
+
+                new ConversationRepo(Objects.requireNonNull(getActivity())).addConversation(msg, new ConversationRepo.MsgAddListener() {
+                    @Override
+                    public void saveMsgStatus(String message) {
+                        Log.d("mtest", "saveMsgStatus: " + message);
+                    }
+                });
                 messageList.add(msg);
+
                 adapter.notifyDataSetChanged();
+                conversation.smoothScrollToPosition(messageList.size() - 1);
 
                 msgInput.getText().clear();
                 botMessage(inputMsg);
+
             }
         });
-
-
-
-
 
         return view;
     }
@@ -194,7 +227,7 @@ public class ChatFragment extends Fragment implements BotAdapter.ImageClickListe
         if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_RESULT) {
             String filePath = getImageFromFilePath(data);
             if (filePath != null) {
-                selectedImage = BitmapFactory.decodeFile(filePath);
+                Bitmap selectedImage = BitmapFactory.decodeFile(filePath);
                 String msgImage = Base4Utils.getBase64String(selectedImage);
                 Conversation msg = new Conversation();
                 if(userObj != null){
@@ -205,6 +238,7 @@ public class ChatFragment extends Fragment implements BotAdapter.ImageClickListe
 
                 messageList.add(msg);
                 adapter.notifyDataSetChanged();
+                conversation.smoothScrollToPosition(messageList.size() - 1);
                 //imageView.setImageBitmap(selectedImage);
             }
         }
@@ -223,7 +257,6 @@ public class ChatFragment extends Fragment implements BotAdapter.ImageClickListe
         cursor.moveToFirst();
         return cursor.getString(columnIndex);
     }
-
 
     private void botMessage(String userMsg) {
         Conversation msg = new Conversation();
@@ -250,7 +283,6 @@ public class ChatFragment extends Fragment implements BotAdapter.ImageClickListe
         }
     }
 
-
     @Override
     public void onImageClick(Bitmap image) {
         showImage(image);
@@ -264,8 +296,21 @@ public class ChatFragment extends Fragment implements BotAdapter.ImageClickListe
         dialogBuilder.setView(dialogView);
         AlertDialog progressDialog= dialogBuilder.create();
 
-       ImageView imageView = dialogView.findViewById(R.id.image_view);
-       imageView.setImageBitmap(image);
-       progressDialog.show();
+        ImageView imageView = dialogView.findViewById(R.id.image_view);
+        imageView.setImageBitmap(image);
+        Objects.requireNonNull(progressDialog.getWindow()).getAttributes().windowAnimations = R.style.animation;
+        progressDialog.show();
+    }
+
+    private void notifyUser(){
+        new ConversationRepo(Objects.requireNonNull(getActivity())).listenerOnDataChange(new ConversationRepo.ConversationStatus() {
+            @Override
+            public void notifyOpponent(List<Conversation> conversations, List<String> keys) {
+                messageList.clear();
+                messageList.addAll(conversations);
+                conversation.smoothScrollToPosition(messageList.size() - 1);
+                Log.d("mtest", "notifyOpponent: notify doctor");
+            }
+        });
     }
 }

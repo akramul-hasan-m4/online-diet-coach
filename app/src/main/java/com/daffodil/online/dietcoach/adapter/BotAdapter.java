@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.daffodil.online.dietcoach.R;
 import com.daffodil.online.dietcoach.model.Conversation;
+import com.daffodil.online.dietcoach.model.Users;
 import com.daffodil.online.dietcoach.utils.Base4Utils;
 
 import java.util.List;
@@ -26,11 +27,15 @@ public class BotAdapter extends RecyclerView.Adapter<BotAdapter.ChatView> {
     private List<Conversation> messageList;
     private Activity activity;
     private ImageClickListener listener;
+    private Users logInUser;
+    private String logInUserType;
 
-    public BotAdapter(List<Conversation> messageList, Activity activity, ImageClickListener listener) {
+    public BotAdapter(List<Conversation> messageList, Activity activity, ImageClickListener listener, Users logInUser) {
         this.messageList = messageList;
         this.activity = activity;
         this.listener = listener;
+        this.logInUser = logInUser;
+        this.logInUserType = logInUser.getUserType();
     }
 
     public interface ImageClickListener{
@@ -49,6 +54,7 @@ public class BotAdapter extends RecyclerView.Adapter<BotAdapter.ChatView> {
         Conversation msg = messageList.get(position);
 
         if(msg != null){
+            String currentUser = logInUserType == null || logInUserType.equalsIgnoreCase(DOCTOR) ? USER : logInUserType;
             if(msg.getUserType() != null && msg.getUserType().equalsIgnoreCase(USER)){
                 holder.botLayout.setVisibility(View.GONE);
                 holder.userLayout.setVisibility(View.VISIBLE);
@@ -73,10 +79,24 @@ public class BotAdapter extends RecyclerView.Adapter<BotAdapter.ChatView> {
             } else if(msg.getUserType() != null && msg.getUserType().equalsIgnoreCase(DOCTOR)){
                 holder.botLayout.setVisibility(View.VISIBLE);
                 holder.userLayout.setVisibility(View.GONE);
-                holder.doctorMessage.setText(msg.getMessage());
+                if(msg.getMessage() != null){
+                    holder.doctorMessage.setVisibility(View.VISIBLE);
+                    holder.doctorMessage.setText(msg.getMessage());
+                }
+
+                if(msg.getImageData() != null){
+                    final Bitmap image = Base4Utils.decodeBase64(msg.getImageData(), activity);
+                    holder.doctorSendImage.setVisibility(View.VISIBLE);
+                    holder.doctorSendImage.setImageBitmap(image);
+
+                    holder.doctorSendImage.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            listener.onImageClick(image);
+                        }
+                    });
+                }
             }
-
-
         }
     }
 
