@@ -11,6 +11,7 @@ import com.daffodil.online.dietcoach.db.local.SharedPreferencesConfig;
 import com.daffodil.online.dietcoach.ui.ChatRoomFragment;
 import com.daffodil.online.dietcoach.ui.DashBoard;
 import com.daffodil.online.dietcoach.ui.DoctorProfile;
+import com.daffodil.online.dietcoach.ui.FoodFragment;
 import com.daffodil.online.dietcoach.ui.SerialListFragment;
 import com.daffodil.online.dietcoach.ui.UserProfile;
 
@@ -119,6 +120,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new UserProfile()).addToBackStack(null).commit();
         }else if (id == R.id.nav_chat) {
             getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new ChatRoomFragment()).addToBackStack(null).commit();
+        }else if (id == R.id.nav_food_list) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new FoodFragment()).addToBackStack(null).commit();
         }
 
         drawer.closeDrawer(GravityCompat.START);

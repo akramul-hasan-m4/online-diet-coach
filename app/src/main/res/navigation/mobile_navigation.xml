@@ -24,6 +24,12 @@
         tools:layout="@layout/fragment_dash_board" />
 
     <fragment
+        android:id="@+id/nav_food_list"
+        android:name="com.daffodil.online.dietcoach.ui.FoodFragment"
+        android:label="Diet List"
+        tools:layout="@layout/fragment_food" />
+
+    <fragment
         android:id="@+id/nav_chat"
         android:name="com.daffodil.online.dietcoach.ui.ChatRoomFragment"
         android:label="Chat"
