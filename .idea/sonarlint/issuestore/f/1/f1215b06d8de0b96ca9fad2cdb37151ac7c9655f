@@ -1,5 +1,6 @@
 
-Esquid:S1068)"'Remove this unused "TAG" private field.(Ö—ÈÚ8Ö‡ÊÚê-
-lsquid:MaximumInheritanceDepth'"<This class has 6 parents which is greater than 5 authorized.(ƒ¿8ïËæã-
-Fsquid:S1068+"(Remove this unused "menu" private field.(î·öÁ8£ú«±ê-
-isquid:CommentedOutCodeLine5"<This block of commented-out lines of code should be removed.(äïˆ8¨¾Ôéã-
+Fsquid:S1068-"(Remove this unused "menu" private field.(î·öÁ8£ú«±ê-
+vsquid:UselessImportCheck"KRemove this unused import 'com.daffodil.online.dietcoach.ui.DoctorProfile'.(¡Ú¯Æ8é™ÙŒî-
+Esquid:S1068+"'Remove this unused "TAG" private field.(Ö—ÈÚ8Ö‡ÊÚê-
+lsquid:MaximumInheritanceDepth)"<This class has 6 parents which is greater than 5 authorized.(ƒ¿8ïËæã-
+isquid:CommentedOutCodeLine7"<This block of commented-out lines of code should be removed.(äïˆ8¨¾Ôéã-

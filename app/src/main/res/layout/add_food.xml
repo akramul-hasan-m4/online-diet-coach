@@ -4,19 +4,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:padding="10dp"
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/food_image_insert"
         android:layout_width="200dp"
         android:layout_gravity="center"
-        android:src="@drawable/app_icon"
+        android:src="@drawable/ic_photo_camera_black_24dp"
         android:layout_height="200dp"
         tools:ignore="ContentDescription" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/foodName_layout"
         style="@style/LoginTextInputLayoutStyle"
+        android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:counterMaxLength="11"
@@ -40,14 +42,29 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <Spinner
+        android:id="@+id/spinner_diet_type"
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:background="@drawable/spinner_border"
+        android:layout_height="45dp" />
+
+    <Spinner
+        android:id="@+id/spinner_qualifier"
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:background="@drawable/spinner_border"
+        android:layout_height="45dp" />
 
     <Button
         android:id="@+id/add_food"
         android:layout_width="wrap_content"
-        android:text="Add"
+        android:text="Add Diet"
         android:textStyle="bold"
+        android:layout_marginTop="10dp"
         android:textColor="@android:color/white"
         android:background="@drawable/gradientbtn"
+        android:layout_marginBottom="5dp"
         android:layout_gravity="center"
         android:layout_height="wrap_content"/>
 

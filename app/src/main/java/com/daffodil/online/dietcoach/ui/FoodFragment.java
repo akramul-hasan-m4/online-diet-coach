@@ -20,15 +20,16 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.daffodil.online.dietcoach.R;
 import com.daffodil.online.dietcoach.adapter.FoodAdapter;
 import com.daffodil.online.dietcoach.db.repository.FoodRepo;
-import com.daffodil.online.dietcoach.model.Conversation;
 import com.daffodil.online.dietcoach.model.Food;
 import com.daffodil.online.dietcoach.utils.Base4Utils;
 import com.google.android.material.textfield.TextInputEditText;
@@ -78,7 +79,7 @@ public class FoodFragment extends Fragment {
         verifyStoragePermissions(getActivity());
         foodRecView = view.findViewById(R.id.food_rec_view);
         foodProgressbar = view.findViewById(R.id.food_progressbar);
-
+        foodProgressbar.setVisibility(View.VISIBLE);
         new FoodRepo(getActivity()).getAllFoods(new FoodRepo.FoodStatus() {
             @Override
             public void foodIsLoaded(List<Food> foods, List<String> keys) {
@@ -89,6 +90,7 @@ public class FoodFragment extends Fragment {
                 foodRecView.setLayoutManager(manager);
                 foodRecView.setHasFixedSize(true);
                 foodRecView.setAdapter(adapter);
+                foodProgressbar.setVisibility(View.GONE);
             }
         });
 
@@ -210,9 +212,11 @@ public class FoodFragment extends Fragment {
 
 
     private void addFood(Food food) {
+        foodProgressbar.setVisibility(View.VISIBLE);
         new FoodRepo(getActivity()).addFood(food, new FoodRepo.FoodAddListener() {
             @Override
             public void saveFoodStatus(String message) {
+                foodProgressbar.setVisibility(View.GONE);
                 Toast.makeText(Objects.requireNonNull(getActivity()), message, Toast.LENGTH_SHORT).show();
             }
         });
@@ -224,12 +228,35 @@ public class FoodFragment extends Fragment {
         final ViewGroup root = null;
         final View dialogView = inflater.inflate(R.layout.add_food, root, false);
         dialogBuilder.setView(dialogView);
-        AlertDialog progressDialog = dialogBuilder.create();
+        final AlertDialog progressDialog = dialogBuilder.create();
 
         foodImageInsert = dialogView.findViewById(R.id.food_image_insert);
-        TextInputLayout foodNameLayout = dialogView.findViewById(R.id.foodName_layout);
+        final TextInputLayout foodNameLayout = dialogView.findViewById(R.id.foodName_layout);
         final TextInputEditText inFoodName = dialogView.findViewById(R.id.in_foodName);
+        final Spinner dietType = dialogView.findViewById(R.id.spinner_diet_type);
+        final Spinner qualifier = dialogView.findViewById(R.id.spinner_qualifier);
         Button btnAddFood = dialogView.findViewById(R.id.add_food);
+
+        List<String> list = new ArrayList<>();
+        list.add("Select Diet Type");
+        list.add("Breakfast");
+        list.add("Dinner");
+        list.add("Supper");
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dietType.setAdapter(dataAdapter);
+
+        List<String> list2 = new ArrayList<>();
+        list2.add("Select Diet Qualifier");
+        list2.add("KG");
+        list2.add("Pound");
+        list2.add("Cups");
+        list2.add("Glass");
+        list2.add("Piece");
+        list2.add("Gram");
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, list2);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        qualifier.setAdapter(dataAdapter2);
 
         foodImageInsert.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -241,14 +268,21 @@ public class FoodFragment extends Fragment {
         btnAddFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String foodName = inFoodName.getText().toString();
-                Food food = new Food();
-                food.setFoodName(foodName);
-                food.setFoodType("Launch");
-                food.setQuantity("126 Cals");
-                food.setQuantityQualifier("Cups");
-                food.setFoodImage(msgImage);
-                addFood(food);
+                String foodName = inFoodName.getText() == null ? "" : inFoodName.getText().toString();
+                String selectedDietType = dietType.getSelectedItemPosition() == 0 ? "" : (String)dietType.getSelectedItem();
+                String selectedQualifier = qualifier.getSelectedItemPosition() == 0 ? "" : (String)qualifier.getSelectedItem();
+                if(foodName.length() == 0 ){
+                    foodNameLayout.setError("Enter Food Name");
+                }else {
+                    Food food = new Food();
+                    food.setFoodName(foodName);
+                    food.setFoodType(selectedDietType);
+                    food.setQuantity("126 Cals");
+                    food.setQuantityQualifier(selectedQualifier);
+                    food.setFoodImage(msgImage);
+                    addFood(food);
+                    progressDialog.dismiss();
+                }
             }
         });
 
