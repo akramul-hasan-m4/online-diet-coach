@@ -8,14 +8,17 @@ import android.os.Bundle;
 import com.daffodil.online.dietcoach.BuildConfig;
 import com.daffodil.online.dietcoach.R;
 import com.daffodil.online.dietcoach.db.local.SharedPreferencesConfig;
+import com.daffodil.online.dietcoach.model.Users;
 import com.daffodil.online.dietcoach.ui.ChatRoomFragment;
 import com.daffodil.online.dietcoach.ui.DashBoard;
 import com.daffodil.online.dietcoach.ui.DoctorProfile;
+import com.daffodil.online.dietcoach.ui.DrRegFragment;
 import com.daffodil.online.dietcoach.ui.FoodFragment;
 import com.daffodil.online.dietcoach.ui.SerialListFragment;
 import com.daffodil.online.dietcoach.ui.UserProfile;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.gson.Gson;
 
 import android.view.MenuItem;
 
@@ -35,6 +38,7 @@ import android.view.Menu;
 
 import java.util.Objects;
 
+import static com.daffodil.online.dietcoach.db.local.ShareStoreConstants.CURRENT_USER;
 import static com.daffodil.online.dietcoach.db.local.ShareStoreConstants.NO;
 import static com.daffodil.online.dietcoach.db.local.ShareStoreConstants.REMEMBER_ME;
 
@@ -42,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private static final String TAG = "MainActivity";
     DrawerLayout drawer;
-    private Menu menu;
+    //private Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +74,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationUI.setupWithNavController(navigationView, navController);
 
         navigationView.setNavigationItemSelectedListener(this);
+
+        hideMenu(navigationView);
+    }
+
+    private void hideMenu(NavigationView navigationView){
+        Menu menu = navigationView.getMenu();
+        MenuItem target = menu.findItem(R.id.nav_user_profile);
+        Gson gson = new Gson();
+        String user = SharedPreferencesConfig.getStringData(Objects.requireNonNull(this), CURRENT_USER);
+        Users userObj = gson.fromJson(user, Users.class);
+
+        if (userObj != null && userObj.getUserType() != null) {
+
+            if(userObj.getUserType().equalsIgnoreCase("admin")){
+                target.setVisible(true);
+            }else {
+                target.setVisible(false);
+            }
+
+        }
     }
 
     @Override
@@ -122,6 +146,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new ChatRoomFragment()).addToBackStack(null).commit();
         }else if (id == R.id.nav_food_list) {
             getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new FoodFragment()).addToBackStack(null).commit();
+        }else if (id == R.id.nav_dr_reg) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new DrRegFragment()).addToBackStack(null).commit();
         }
 
         drawer.closeDrawer(GravityCompat.START);

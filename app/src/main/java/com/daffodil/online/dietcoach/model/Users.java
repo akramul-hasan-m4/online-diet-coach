@@ -19,6 +19,14 @@ public class Users {
     private String doctorDegree;
     private String userType;
 
+    private String firstEdu;
+    private String secondEdu;
+    private String thirdEcu;
+    private String fourthEdu;
+    private String firstExp;
+    private String secondExp;
+    private String thirdExp;
+
     public String getAddress() {
         return address;
     }
@@ -139,5 +147,61 @@ public class Users {
 
     public void setDoctorDegree(String doctorDegree) {
         this.doctorDegree = doctorDegree;
+    }
+
+    public String getFirstEdu() {
+        return firstEdu;
+    }
+
+    public void setFirstEdu(String firstEdu) {
+        this.firstEdu = firstEdu;
+    }
+
+    public String getSecondEdu() {
+        return secondEdu;
+    }
+
+    public void setSecondEdu(String secondEdu) {
+        this.secondEdu = secondEdu;
+    }
+
+    public String getThirdEcu() {
+        return thirdEcu;
+    }
+
+    public void setThirdEcu(String thirdEcu) {
+        this.thirdEcu = thirdEcu;
+    }
+
+    public String getFourthEdu() {
+        return fourthEdu;
+    }
+
+    public void setFourthEdu(String fourthEdu) {
+        this.fourthEdu = fourthEdu;
+    }
+
+    public String getFirstExp() {
+        return firstExp;
+    }
+
+    public void setFirstExp(String firstExp) {
+        this.firstExp = firstExp;
+    }
+
+    public String getSecondExp() {
+        return secondExp;
+    }
+
+    public void setSecondExp(String secondExp) {
+        this.secondExp = secondExp;
+    }
+
+    public String getThirdExp() {
+        return thirdExp;
+    }
+
+    public void setThirdExp(String thirdExp) {
+        this.thirdExp = thirdExp;
     }
 }
